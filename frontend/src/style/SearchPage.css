@@ -1,0 +1,159 @@
+/* Mobile-first single-column layout (refined) */
+.container {
+  width: 100%;
+  max-width: 480px;
+  /* app-like width */
+  margin: 0 auto;
+  padding: 10px 12px;
+  /* reduce padding around search */
+  box-sizing: border-box;
+  background: #fafafa;
+  /*min-height: calc(100vh - 56px);*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* compact header area inside page */
+.search-header {
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 18px;
+  margin: 0 0 4px 0;
+  color: #111;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 8px 0;
+}
+
+/* single stacked column */
+.search-grid {
+  display: block;
+}
+
+/* main search card light and compact */
+.left-panel .search-card {
+  background: transparent;
+  border-radius: 12px;
+  padding: 0;
+  margin-bottom: 8px;
+  box-shadow: none;
+}
+
+/* make search actions full-width and prominent */
+.search-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0 6px;
+}
+
+.btn.primary {
+  padding: 12px;
+  border-radius: 10px;
+  background: #ff6b35;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+}
+
+/* Right panel cards stacked under search (compact) */
+.right-panel .card,
+.right-panel .info-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 6px 18px rgba(12, 12, 12, 0.04);
+}
+
+/* ensure search-bar stretches fully on mobile */
+.mobile-search-bar {
+  width: 100%;
+  padding: 8px 0;
+}
+
+/* reduce spacing and keep tappable targets large */
+.result-item {
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.result-add {
+  padding: 8px 12px;
+}
+
+/* reduce outer whitespace on very small screens */
+@media (max-width: 380px) {
+  .container {
+    padding: 8px;
+  }
+
+  .title {
+    font-size: 17px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+}
+
+/* Button base for SearchPage context */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+  background: #fff;
+  color: #111;
+  width: 100%;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+}
+
+.btn.secondary {
+  border-color: #ff6b35;
+  color: #ff6b35;
+  font-weight: 600;
+  background: #fff;
+}
+
+.btn.secondary:active {
+  transform: scale(0.98);
+}
+
+/* Selected list */
+.selected-list {
+  list-style: none;
+  margin: 8px 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.selected-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  background: #fff8f5;
+  border: 1px solid #fde6dd;
+}
+
+.item-label {
+  font-size: 15px;
+  color: #111;
+}

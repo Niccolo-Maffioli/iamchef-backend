@@ -1,0 +1,116 @@
+/* Mobile-first styling for IntroPage */
+
+.intro-page {
+  width: 100%;
+  background: linear-gradient(180deg, #fff4ed 0%, #fafafa 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 18px;
+  box-sizing: border-box;
+}
+
+.intro-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 28px 24px;
+  box-shadow: 0 20px 45px rgba(12, 12, 12, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  text-align: center;
+}
+
+.intro-icon {
+  font-size: 44px;
+}
+
+.intro-card h1 {
+  margin: 0;
+  font-size: 22px;
+  color: #161616;
+}
+
+.intro-card p {
+  margin: 0;
+  font-size: 15px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.input-label {
+  margin-top: 4px;
+  font-size: 13px;
+  text-align: left;
+  color: #777;
+}
+
+.intro-card input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #e3e3e3;
+  font-size: 15px;
+  background: #fafafa;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.intro-card input:focus {
+  border-color: #ff6b35;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.18);
+  outline: none;
+  background: #ffffff;
+}
+
+.btn.primary {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: #ff6b35;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 16px 30px rgba(255, 107, 53, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn.primary:active {
+  transform: scale(0.97);
+}
+
+.btn.primary:disabled {
+  opacity: 0.6;
+  box-shadow: none;
+}
+
+.error-text {
+  font-size: 13px;
+  color: #d63b3b;
+  background: #ffeae6;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.helper-text {
+  font-size: 12px;
+  color: #8a8a8a;
+  line-height: 1.4;
+}
+
+@media (max-width: 360px) {
+  .intro-page {
+    padding: 24px 14px;
+  }
+
+  .intro-card {
+    padding: 24px 20px;
+    gap: 16px;
+  }
+
+  .intro-card h1 {
+    font-size: 20px;
+  }
+}

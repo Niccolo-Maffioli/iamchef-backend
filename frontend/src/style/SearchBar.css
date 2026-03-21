@@ -1,0 +1,166 @@
+/* Reset global body hacks previously applied by this file */
+/* Keep styles scoped to the search components */
+
+.search-bar {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 8px 0;
+  box-sizing: border-box;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #ff6b35;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.12);
+}
+
+/* Mobile-first searchbar styles */
+
+.mobile-search-bar {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 8px 12px;
+  box-sizing: border-box;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: #ff6b35;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.12);
+}
+
+.loader {
+  position: absolute;
+  right: 10px;
+  font-size: 14px;
+  color: #999;
+}
+
+/* Results list appears right under the input, full width */
+.results-list {
+  margin: 10px 0 0 0;
+  width: 100%;
+  padding: 6px;
+  list-style: none;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(12, 12, 12, 0.08);
+  max-height: 45vh;
+  overflow-y: auto;
+  border: 1px solid #f0f0f0;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Single result item: large tappable area */
+.result-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  gap: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  width: 100%;
+  border: none;
+  background: transparent;
+  text-align: left;
+}
+
+.result-item+.result-item {
+  margin-top: 8px;
+}
+
+.result-item:active {
+  background: #f7f7f7;
+}
+
+.result-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.result-label {
+  font-size: 15px;
+  color: #111;
+}
+
+.result-sub {
+  font-size: 12px;
+  color: #777;
+  margin-top: 4px;
+}
+
+.result-add {
+  background: #ff6b35;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.result-add:active {
+  transform: scale(0.98);
+}
+
+.search-error {
+  margin-top: 8px;
+  color: #b00020;
+  font-size: 13px;
+}
+
+/* muted text */
+.muted {
+  color: #777;
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* ensure full width on very small screens */
+@media (max-width: 420px) {
+  .mobile-search-bar {
+    padding: 6px;
+  }
+
+  .search-input {
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+
+  .result-add {
+    padding: 6px 10px;
+    font-size: 15px;
+  }
+}

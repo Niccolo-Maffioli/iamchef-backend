@@ -1,0 +1,75 @@
+/* Mobile-first controls for ScrollBtnSection */
+
+.scroll-btn-section {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	padding: 12px 8px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.scroll-btn-section button {
+	appearance: none;
+	-webkit-appearance: none;
+	border: none;
+	background: #ff6b35;
+	color: #fff;
+	padding: 12px;
+	border-radius: 999px;
+	min-width: 44px;
+	min-height: 44px;
+	font-size: 18px;
+	line-height: 1;
+	box-shadow: 0 4px 12px rgba(255, 107, 53, 0.35);
+	transition: transform 0.1s ease, opacity 0.2s ease, background 0.2s ease;
+}
+
+.scroll-btn-section .arrow-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 20px;
+	line-height: 1;
+	width: 20px;
+	height: 20px;
+}
+
+.scroll-btn-section .arrow-left .arrow-icon {
+	transform: rotate(180deg);
+}
+
+.scroll-btn-section button:active {
+	transform: scale(0.97);
+}
+
+.scroll-btn-section button:disabled {
+	background: #ffd2c1;
+	box-shadow: none;
+	opacity: 0.65;
+}
+
+.scroll-btn-section span {
+	min-width: 64px;
+	text-align: center;
+	font-size: 14px;
+	color: #333;
+}
+
+/* Optional: subtle entrance for the section */
+.scroll-btn-section {
+	animation: fadeUp 260ms ease both;
+}
+
+@keyframes fadeUp {
+	from {
+		opacity: 0;
+		transform: translateY(6px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
