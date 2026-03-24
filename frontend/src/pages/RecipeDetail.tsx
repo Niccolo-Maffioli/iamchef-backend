@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { RecipeType, IngredientType } from "../Types/recipes";
 import '../style/RecipeDetail.css';
 
-const API_BASE_URL = import.meta.env.VITE_BACKEND_URL ?? "http://localhost:8080";
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL ?? "";
 
 type RecipeDetailProps = {
   id: number;

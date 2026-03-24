@@ -164,3 +164,26 @@
     font-size: 15px;
   }
 }
+
+/* Desktop layout: make the search bar wider and centered on larger screens */
+@media (min-width: 1024px) {
+
+  .search-bar,
+  .mobile-search-bar {
+    max-width: 940px;
+    padding: 12px 24px;
+  }
+
+  .search-input {
+    padding-left: 18px;
+    padding-right: 18px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .results-list {
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

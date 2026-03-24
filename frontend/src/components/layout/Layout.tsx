@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "../Header";
 import Footer from "../Footer";
+import "../../style/Layout.css";
 
 // Layout now renders shared chrome and leaves page content to the router Outlet.
 const Layout = () => {

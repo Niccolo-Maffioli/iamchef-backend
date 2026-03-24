@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import type { RecipeType } from "../Types/recipes";
 
-const API_BASE_URL = import.meta.env.VITE_BACKEND_URL ?? "http://localhost:8080";
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL ?? "";
 
 const useRecipeSearch = () => {
   const [allRecipes, setAllRecipes] = useState<RecipeType[]>([]);

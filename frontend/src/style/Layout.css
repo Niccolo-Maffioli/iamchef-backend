@@ -17,7 +17,8 @@
   min-height: 100vh;
   box-sizing: border-box;
   background: #fafafa;
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 .header-container {
@@ -27,17 +28,9 @@
 .main-container {
   padding: 14px;
   box-sizing: border-box;
+  flex: 1 1 auto;
 }
 
-.footer-container {
-  padding: 12px;
-  text-align: center;
-  font-size: 13px;
-  color: #777;
-  background: transparent;
-  border-top: 1px solid rgba(0, 0, 0, 0.04);
-  width: 100%;
-}
 
 /* Footer fixed on small screens (mobile-first) */
 :root {
@@ -46,18 +39,16 @@
 
 .footer-container {
   box-sizing: border-box;
-  height: var(--footer-height);
   position: fixed;
   left: 0;
   bottom: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 12px;
-  background: #ffffffcc;
-  /* slight translucency to blend with content */
-  backdrop-filter: blur(4px);
-  z-index: 50;
+  padding: 2rem;
+  background-color: #fff;
+  z-index: 1000;
 }
 
 /* Ensure main content isn't hidden behind fixed footer on mobile */
@@ -67,6 +58,8 @@
 
 /* Desktop / larger screens: non-fixed footer with richer layout */
 @media (min-width: 768px) {
+
+  /* On desktop make footer part of the document flow so content sits between header and footer */
   .footer-container {
     position: static;
     height: auto;
@@ -78,6 +71,5 @@
 
   .main .main-container {
     padding-bottom: 1rem;
-    /* restore compact padding for desktop */
   }
 }
