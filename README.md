@@ -47,22 +47,43 @@ Il backend usa Maven wrapper (`./mvnw`). Le dipendenze sono definite in `pom.xml
 2. Per avviare localmente si usa il wrapper Maven (vedi sotto).
 
 ## Creazione del database e popolamento
-Il progetto include `data.sql` che crea e popola le tabelle.
+Il progetto include `data.sql` che crea e popola le tabelle. Nota importante sul comportamento:
 
-Esegui manualmente (esempio con utente `root`):
+- Se esegui `data.sql` manualmente con il client MySQL, lo script può creare il database e selezionarlo (se contiene `CREATE DATABASE` e `USE`). In questa repository `backend/src/main/resources/data.sql` è stato aggiornato per creare e selezionare il database `iamchef` quando viene eseguito manualmente.
+
+- Se ti affidi a Spring Boot (`spring.sql.init.mode=always`), Spring esegue il contenuto di `data.sql` usando la connessione definita in `spring.datasource.url`. In questo caso il database indicato nella URL deve esistere già: Spring non può creare il database perché non riuscirebbe ad aprire la DataSource.
+
+Come procedere (opzioni):
+
+1) Eseguire tutto manualmente (consigliato per sviluppo locale quando vuoi che lo script crei il DB):
+
 ```bash
-# crea il database (se non esiste)
-mysql -u root -p -e "CREATE DATABASE mychef CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
-
-# importa lo script di popolamento
-mysql -u root -p mychef < backend/src/main/resources/data.sql
+# crea il database (se non esiste) e importa lo script che popola tabelle/dati
+mysql -u root -p < backend/src/main/resources/data.sql
 ```
 
-Oppure lascia che Spring Boot importi automaticamente `data.sql` all'avvio se in `application.properties` è impostato `spring.sql.init.mode=always`.
+oppure (se preferisci specificare il DB):
 
-Se hai errori di DDL o duplicate key durante l'inizializzazione, ricrea il DB vuoto prima dell'avvio:
 ```bash
-mysql -u root -p -e "DROP DATABASE IF EXISTS mychef; CREATE DATABASE mychef CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+mysql -u root -p iamchef < backend/src/main/resources/data.sql
+```
+
+2) Usare Spring Boot per importare SOLO tabelle/dati (database deve esistere):
+
+```bash
+# crea il database (una tantum) prima di avviare l'app
+mysql -u root -p -e "CREATE DATABASE iamchef CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+
+# poi avvia Spring Boot; Spring importerà data.sql sulla connessione configurata
+./mvnw spring-boot:run
+```
+
+3) Automatizzare (script helper): puoi aggiungere uno script `scripts/init-db.sh` che esegue la creazione del DB e importa `data.sql` in un solo comando (posso aggiungerlo io se vuoi).
+
+Se vedi errori di DDL o chiavi duplicate, ricrea il DB vuoto prima dell'import:
+
+```bash
+mysql -u root -p -e "DROP DATABASE IF EXISTS iamchef; CREATE DATABASE iamchef CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
 ```
 
 ## Avviare l'applicazione
@@ -104,7 +125,7 @@ curl http://localhost:8080/recipes
 - Install frontend: `pnpm install`
 - Start frontend: `pnpm dev`
 - Start backend: `./mvnw spring-boot:run`
-- Recreate DB: `mysql -u root -p -e "DROP DATABASE IF EXISTS mychef; CREATE DATABASE mychef CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"`
+- Recreate DB: `mysql -u root -p -e "DROP DATABASE IF EXISTS iamchef; CREATE DATABASE iamchef CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"`
 
 ---
 Se vuoi, posso aggiungere un file `.env.example` e uno script `scripts/init-db.sh` per automatizzare la creazione del DB.

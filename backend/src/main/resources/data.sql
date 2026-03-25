@@ -4,6 +4,10 @@
 
 SET @@SESSION.sql_mode = REPLACE(@@SESSION.sql_mode, 'NO_AUTO_VALUE_ON_ZERO', '');
 
+-- Create and select the database so the script can be run standalone
+CREATE DATABASE IF NOT EXISTS iamchef CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE iamchef;
+
 CREATE TABLE IF NOT EXISTS recipe (
   id BIGINT PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
