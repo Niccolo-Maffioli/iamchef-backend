@@ -126,6 +126,3 @@ curl http://localhost:8080/recipes
 - Start frontend: `pnpm dev`
 - Start backend: `./mvnw spring-boot:run`
 - Recreate DB: `mysql -u root -p -e "DROP DATABASE IF EXISTS iamchef; CREATE DATABASE iamchef CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"`
-
----
-Se vuoi, posso aggiungere un file `.env.example` e uno script `scripts/init-db.sh` per automatizzare la creazione del DB.
