@@ -1,4 +1,4 @@
-# mychef - Setup e istruzioni di sviluppo
+# Iamchef - Setup e istruzioni di sviluppo
 
 Breve guida per clonare, configurare e avviare il progetto (frontend React + backend Spring Boot + MySQL).
 
